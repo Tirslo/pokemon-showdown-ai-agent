@@ -1,0 +1,13 @@
+Pikachu  
+Ability: No Ability  
+- Thunderbolt  
+- Surf  
+- Rest  
+- Body Slam
+
+Bulbasaur  
+Ability: No Ability  
+- Razor Leaf  
+- Body Slam  
+- Rest  
+- Sleep Powder
