@@ -4,7 +4,6 @@ from poke_env import AccountConfiguration, LocalhostServerConfiguration
 from poke_env.teambuilder import Teambuilder
 
 from ClaudePlayer import ClaudePlayer
-from SmolAgentPlayer import SmolAgentPlayer
 
 team_1 = """
 Squirtle  
