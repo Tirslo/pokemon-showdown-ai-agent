@@ -20,6 +20,20 @@ npm ci
 npm start
 ```
 
+## Set AWS_PROFILE
+
+If not using the default profile boto3 can use env var `AWS_PROFILE`
+
+```bash
+alias aws-login-dev='aws sso login --profile <profile name> && export AWS_PROFILE=<profile name>'
+```
+
+## Set MongoDB URI for memory 
+
+```bash
+export MONGO_URI="mongo+srv://username:password@host.mongodb.net/?appName=myapp"
+```
+
 ## Run
 
 Sign in using `human_player1` in Pokemon Showdown. Import a Gen1 team using [human_team.txt](human_team.txt). Start agent

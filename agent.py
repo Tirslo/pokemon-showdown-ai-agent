@@ -1,5 +1,7 @@
+from dotenv import load_dotenv
+load_dotenv()
+import os
 import asyncio
-
 from poke_env import AccountConfiguration, LocalhostServerConfiguration
 from poke_env.teambuilder import Teambuilder
 
@@ -23,6 +25,24 @@ EVs: 252 HP / 252 Atk / 252 Def / 252 SpA / 252 SpD / 252 Spe
 - Fire Blast  
 - Mega Kick  
 - Slash
+
+Nidoking  
+Ability: No Ability  
+Level: 100  
+EVs: 252 HP / 252 Atk / 252 Def / 252 SpA / 252 SpD / 252 Spe  
+- Earthquake  
+- Body Slam  
+- Thunderbolt  
+- Ice Beam
+
+Fearow  
+Ability: No Ability  
+Level: 100  
+EVs: 252 HP / 252 Atk / 252 Def / 252 SpA / 252 SpD / 252 Spe  
+- Drill Peck  
+- Agility  
+- Double-Edge  
+- Mirror Move
 """
 
 class LLMTeam(Teambuilder):
@@ -34,9 +54,14 @@ class LLMTeam(Teambuilder):
 
 
 async def main():
+    mongo_uri = os.getenv("MONGO_URI")
+    if mongo_uri is None:
+        raise ValueError("MONGO_URI environment variable is not set.")
+
     player = ClaudePlayer(
         # log_level=20,
         account_configuration=AccountConfiguration("caveman_llm_bot1", "0N5hrMtmIeikv8m"),
+        mongo_uri=mongo_uri,
         server_configuration=LocalhostServerConfiguration,
         battle_format="gen1ou",
         team=LLMTeam([team_1]),
