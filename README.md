@@ -34,6 +34,38 @@ alias aws-login-dev='aws sso login --profile <profile name> && export AWS_PROFIL
 export MONGO_URI="mongo+srv://username:password@host.mongodb.net/?appName=myapp"
 ```
 
+## Create a Database, Collection and Vector Search Index on Atlas
+
+- **Database Name:** pokemon-ai 
+- **Collection Name:** battle_logs 
+- **Vector Search Index Name:** vector-index 
+
+```json
+{
+  "fields": [
+    {
+      "numDimensions": 1024,
+      "path": "embedding",
+      "similarity": "cosine",
+      "type": "vector"
+    },
+    {
+      "path": "battle_id",
+      "type": "filter"
+    },
+    {
+      "path": "turn",
+      "type": "filter"
+    },
+    {
+      "path": "action_type",
+      "type": "filter"
+    }
+  ]
+}
+
+```
+
 ## Run
 
 Sign in using `human_player1` in Pokemon Showdown. Import a Gen1 team using [human_team.txt](human_team.txt). Start agent
